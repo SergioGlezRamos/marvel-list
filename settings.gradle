@@ -1,4 +1,4 @@
 rootProject.name = "Marvel List"
 include ':presentation'
-include ':domain'
 include ':data'
+include ':domain'
