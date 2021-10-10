@@ -15,4 +15,8 @@ class CacheApiMarvelRepository(private val apiMarvelRepository: MarvelRepository
         return apiMarvelRepository.getCharacterById(charactersRequest)
     }
 
+    override suspend fun getCharacterList(input: Int): ResponseCharacterModel {
+        return apiMarvelRepository.getCharacterList(input)
+    }
+
 }

@@ -5,4 +5,6 @@ import com.marvellist.domain.model.ResponseCharacterModel
 
 interface MarvelRepository {
     suspend fun getCharacterById(charactersRequest: RequestCharacterModel): ResponseCharacterModel
+
+    suspend fun getCharacterList(input: Int): ResponseCharacterModel
 }

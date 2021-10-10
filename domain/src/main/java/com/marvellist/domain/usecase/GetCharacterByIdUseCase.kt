@@ -10,5 +10,4 @@ class GetCharacterByIdUseCase (private val marvelRepository: MarvelRepository) :
         input.id
         return marvelRepository.getCharacterById(input)
     }
-
 }
