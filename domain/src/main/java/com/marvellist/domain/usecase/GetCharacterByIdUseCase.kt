@@ -7,6 +7,7 @@ import com.marvellist.domain.repository.MarvelRepository
 
 class GetCharacterByIdUseCase (private val marvelRepository: MarvelRepository) : BaseUseCase<RequestCharacterModel, ResponseCharacterModel>() {
     override suspend fun useCaseFunction(input: RequestCharacterModel): ResponseCharacterModel {
+        input.id
         return marvelRepository.getCharacterById(input)
     }
 
