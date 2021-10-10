@@ -10,10 +10,12 @@ import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.marvellist.data.BuildConfig
 import com.marvellist.data.HTTP_ERROR_CODES_START
+import com.marvellist.data.PUBLIC_API_KEY
 import com.marvellist.data.net.CoroutineCallAdapterFactoryNullSupport
 import com.marvellist.data.net.MarvelAPI
 import com.marvellist.data.net.SecuredHttpClient
 import com.marvellist.data.net.model.*
+import com.marvellist.data.utils.getHash
 import com.marvellist.domain.exception.*
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
@@ -24,6 +26,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.converter.scalars.ScalarsConverterFactory
 import java.net.SocketTimeoutException
 import java.net.UnknownHostException
+import java.util.*
 
 class ApiMarvelRepository(private val context: Context,
                           private val networkManager: NetworkManager,
@@ -42,7 +45,17 @@ class ApiMarvelRepository(private val context: Context,
     }
 
     override suspend fun getCharacterById(charactersRequest: RequestCharacterModel): ResponseCharacterModel {
-        return marvelApi.getCharacterById(charactersRequest.id)
+        val ts = Calendar.getInstance().timeInMillis.toString()
+        val hash = getHash(ts)
+        return marvelApi.getCharacterById(charactersRequest.id,ts, PUBLIC_API_KEY,hash)
+            .await()
+            .toDomainModel()
+    }
+
+    override suspend fun getCharacterList(limit: Int): ResponseCharacterModel {
+        val ts = Calendar.getInstance().timeInMillis.toString()
+        val hash = getHash(ts)
+        return marvelApi.getCharacterList(ts,PUBLIC_API_KEY,hash, limit)
             .await()
             .toDomainModel()
     }

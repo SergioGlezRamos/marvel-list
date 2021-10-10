@@ -49,7 +49,8 @@ class MainActivity : BaseActivity<MainActivityBinding, MainViewModel>() {
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
 
-        viewModel.getCharacterById("1")
+        viewModel.getCharacterList(47)
+//        viewModel.getCharacterById("1017100")
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
