@@ -6,6 +6,7 @@ buildscript {
         mavenCentral()
     }
     dependencies {
+        classpath "com.android.tools.build:gradle:3.2.0-alpha10"
         classpath "com.android.tools.build:gradle:4.2.0"
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
 
@@ -25,4 +26,8 @@ allprojects {
 
 task clean(type: Delete) {
     delete rootProject.buildDir
+}
+
+ext {
+    kodeinVersion = '6.5.1'
 }
