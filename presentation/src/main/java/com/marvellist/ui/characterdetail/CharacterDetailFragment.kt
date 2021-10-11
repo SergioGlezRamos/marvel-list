@@ -46,25 +46,25 @@ class CharacterDetailFragment : BaseFragment<FragmentCharacterDetailBinding, Cha
     val args: CharacterDetailFragmentArgs by navArgs()
 
     private val comicListAdapter: ElementListAdapter by lazy {
-        ElementListAdapter() {
+        ElementListAdapter(isStory = false) {
             createDialog(it)
         }
     }
 
     private val eventListAdapter: ElementListAdapter by lazy {
-        ElementListAdapter() {
+        ElementListAdapter(isStory = false) {
             createDialog(it)
         }
     }
 
     private val serieListAdapter: ElementListAdapter by lazy {
-        ElementListAdapter() {
+        ElementListAdapter(isStory = false) {
             createDialog(it)
         }
     }
 
     private val storyListAdapter: ElementListAdapter by lazy {
-        ElementListAdapter() {
+        ElementListAdapter(isStory = true) {
             createDialog(it)
         }
     }
