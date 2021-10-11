@@ -30,12 +30,6 @@ class AboutFragment : BaseFragment<FragmentAboutBinding, AboutViewModel>() {
         val root: View = binding.root
         viewModel = ViewModelProvider(this, viewModelFactory).get(getViewModelClass())
 
-        val textView: TextView = binding.textAbout
-
-        viewModel.text.observe(viewLifecycleOwner, Observer {
-            textView.text = it
-        })
-
         return root
     }
 }
