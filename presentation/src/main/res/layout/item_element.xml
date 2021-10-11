@@ -13,7 +13,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/tvTitle"/>
+        app:layout_constraintBottom_toTopOf="@id/tvTitle" />
 
     <ProgressBar
         android:id="@+id/progressBarElementImage"
@@ -23,7 +23,7 @@
         app:layout_constraintBottom_toBottomOf="@id/ivElement"
         app:layout_constraintStart_toStartOf="@id/ivElement"
         app:layout_constraintEnd_toEndOf="@id/ivElement"
-        android:indeterminateTint="@color/red"/>
+        android:indeterminateTint="@color/red" />
 
     <TextView
         android:id="@+id/tvTitle"
@@ -37,10 +37,23 @@
         android:ellipsize="end"/>
 
     <ImageView
+        android:id="@+id/iv_info"
         android:layout_width="@dimen/character_detail_info_icon_dimensions"
         android:layout_height="@dimen/character_detail_info_icon_dimensions"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:src="@drawable/ic_information"/>
+        android:src="@drawable/ic_information" />
+
+    <ImageView
+        android:id="@+id/iv_info_story"
+        android:layout_width="@dimen/character_detail_info_story_icon_dimensions"
+        android:layout_height="@dimen/character_detail_info_story_icon_dimensions"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/tvTitle"
+        android:src="@drawable/ic_information"
+        android:layout_marginBottom="@dimen/fab_margin"
+        android:visibility="gone"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
