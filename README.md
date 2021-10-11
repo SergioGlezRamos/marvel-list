@@ -48,6 +48,6 @@ Marvel list only contains one Activity that contains the fragments with the func
 
 The navigation of the application is done through the Navigation component, so we have an easy control of the fragment stack.
 
-## Inyección de dependencias
+## Dependency injection
 
 The third-party library Kodein has been used for dependency injection. 
