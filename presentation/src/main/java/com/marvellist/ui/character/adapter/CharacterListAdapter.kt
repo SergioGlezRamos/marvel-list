@@ -28,13 +28,17 @@ class CharacterListAdapter(private val characterList: MutableList<CharacterModel
         characterList.addAll(newCharacterList)
         notifyDataSetChanged()
     }
+
+    fun clear() {
+        characterList.clear()
+    }
 }
 
 class CharacterListViewHolder  (private val binding: ItemCharacterBinding, private val context: Context): RecyclerView.ViewHolder(binding.root) {
 
     fun render(item: CharacterModel, onCharClick: (CharacterModel) -> Unit) {
-        binding.tvCharacterName.text = item.name
-        binding.tvCharacterName.setOnClickListener {
+        binding.button.text = item.name
+        binding.button.setOnClickListener {
             onCharClick(item)
         }
     }

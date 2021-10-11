@@ -35,7 +35,6 @@ class CharacterListFragment : BaseFragment<FragmentCharacterListBinding,Characte
         CharacterListAdapter() {
             val action = CharacterListFragmentDirections.actionNavCharacterListToNavCharDetail(it)
             requireView().findNavController().navigate(action)
-//            Navigation.findNavController(requireView()).navigate(R.id.action_nav_character_list_to_nav_char_detail);
         }
     }
 
@@ -78,8 +77,13 @@ class CharacterListFragment : BaseFragment<FragmentCharacterListBinding,Characte
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        if(totalCharacters == INT_ZERO)
+
+        if(totalCharacters == INT_ZERO) {
+            binding.rvCharacters.adapter?.also {
+                (binding.rvCharacters.adapter as CharacterListAdapter).clear()
+            }
             viewModel.getCharacterList()
+        }
     }
 
     private fun updateRecycler(characterList: List<CharacterModel>){
@@ -88,7 +92,8 @@ class CharacterListFragment : BaseFragment<FragmentCharacterListBinding,Characte
 
     private fun setupRecycler(characterList: List<CharacterModel>){
         binding.rvCharacters.layoutManager = LinearLayoutManager(requireContext(),RecyclerView.VERTICAL,false)
-        characterListAdapter.add(characterList as MutableList<CharacterModel>)
+        if(characterListAdapter.itemCount == INT_ZERO)
+            characterListAdapter.add(characterList as MutableList<CharacterModel>)
         binding.rvCharacters.adapter = characterListAdapter
 
         binding.rvCharacters.addOnScrollListener(object : RecyclerView.OnScrollListener() {
