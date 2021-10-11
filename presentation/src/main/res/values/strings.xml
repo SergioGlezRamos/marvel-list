@@ -18,4 +18,7 @@
     <string name="character_detail_events_title">Events</string>
     <string name="character_detail_series_title">Series</string>
 
+    <!-- about -->
+    <string name="about_text">This application is the result of a technical labor test. \n \n The resources used come from https://developer.marvel.com/docs. \n \n Application made entirely by Sergio González Ramos.</string>
+
 </resources>

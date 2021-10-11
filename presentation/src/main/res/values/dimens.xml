@@ -25,13 +25,10 @@
     <dimen name="character_detail_text_element_margin_top">6dp</dimen>
     <dimen name="character_detail_info_icon_dimensions">20dp</dimen>
 
-<!--    <dimen name="character_detail_">25dp</dimen>-->
-<!--    <dimen name="character_detail_">25dp</dimen>-->
-<!--    <dimen name="character_detail_">25dp</dimen>-->
-<!--    <dimen name="character_detail_">25dp</dimen>-->
-<!--    <dimen name="character_detail_">25dp</dimen>-->
-<!--    <dimen name="character_detail_">25dp</dimen>-->
-<!--    <dimen name="character_detail_">25dp</dimen>-->
+    <!-- About -->
+    <dimen name="about_icon_height">100dp</dimen>
+    <dimen name="about_text_size">17sp</dimen>
+    <dimen name="about_margin_horizontal">25dp</dimen>
 
 
 </resources>
