@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
+    id("androidx.navigation.safeargs")
 }
 
 android {
@@ -44,6 +45,14 @@ android {
     dynamicFeatures = []
 }
 
+sourceSets {
+    main {
+        java {
+            srcDirs += 'build/generated/source/navigation-args'
+        }
+    }
+}
+
 dependencies {
     implementation "com.android.databinding:compiler:3.2.0-alpha10"
     implementation project(":data")
@@ -67,4 +76,8 @@ dependencies {
     implementation "org.kodein.di:kodein-di-generic-jvm:$kodeinVersion"
     implementation "org.kodein.di:kodein-di-framework-android-x:6.3.2"
     implementation "androidx.appcompat:appcompat:1.0.2"
+    //RecyclerView
+    implementation "androidx.recyclerview:recyclerview:1.2.1"
+    implementation "androidx.recyclerview:recyclerview-selection:1.1.0"
+
 }

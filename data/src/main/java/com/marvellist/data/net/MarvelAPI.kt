@@ -16,6 +16,6 @@ interface MarvelAPI {
     fun getCharacterById(@Path("id") id: String,@Query("ts") ts:  String, @Query("apikey") apiKey: String, @Query("hash") hash: String): Deferred<ResponseCharacterMarvelApi>
 
     @GET("/v1/public/characters")
-    fun getCharacterList(@Query("ts") ts:  String, @Query("apikey") apiKey: String, @Query("hash") hash: String, @Query("limit") limit: Int): Deferred<ResponseCharacterMarvelApi>
+    fun getCharacterList(@Query("ts") ts:  String, @Query("apikey") apiKey: String, @Query("hash") hash: String, @Query("limit") limit: Int, @Query("offset") offset: Int): Deferred<ResponseCharacterMarvelApi>
 
 }
