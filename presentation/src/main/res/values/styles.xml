@@ -13,4 +13,17 @@
         <item name="cornerSizeBottomLeft">0dp</item>
         <item name="cornerSizeBottomRight">12dp</item>
     </style>
+
+    <style name="LabelText">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/medium_black</item>
+        <item name="android:gravity">start|center_vertical</item>
+    </style>
+
+    <style name="TitleText">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/light_black</item>
+        <item name="android:gravity">start|center_vertical</item>
+        <item name="android:textStyle">bold</item>
+    </style>
 </resources>

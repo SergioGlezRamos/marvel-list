@@ -1,17 +1,21 @@
 package com.marvellist.ui.characterdetail
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.navArgs
 import com.marvellist.R
 import com.marvellist.base.BaseFragment
 import com.marvellist.databinding.FragmentCharacterDetailBinding
 import com.marvellist.domain.model.CharacterModel
+import com.squareup.picasso.Callback
+import com.squareup.picasso.Picasso
 import org.kodein.di.generic.instance
+import java.lang.Exception
+
 
 class CharacterDetailFragment : BaseFragment<FragmentCharacterDetailBinding, CharacterDetailViewModel>() {
 
@@ -43,7 +47,32 @@ class CharacterDetailFragment : BaseFragment<FragmentCharacterDetailBinding, Cha
 
     private fun setupView(characterModel: CharacterModel) {
         binding.tvName.text = characterModel.name
+
+        val imageURL = characterModel.thumbnail?.path + "." + characterModel.thumbnail?.extension
+        val picasso = Picasso.Builder(requireContext()).build()
+        picasso.load(imageURL)
+            .error(R.drawable.ic_placeholder)
+            .into(binding.ivDetailHeader, object : Callback{
+                override fun onSuccess() {
+                    binding.progressBarCharacterImage.visibility = View.GONE
+                }
+
+                override fun onError(e: Exception?) {
+                    binding.progressBarCharacterImage.visibility = View.GONE
+                    e?.message?.also {
+                        Log.d("Exception", it)
+                    }
+                }
+
+            })
+
+        if(!characterModel.description.isNullOrEmpty()) {
+            binding.tvDescriptionText.text = characterModel.description
+        } else {
+            binding.tvDescriptionText.text = getString(R.string.character_detail_description_not_found)
+        }
     }
+
 
 
 }
