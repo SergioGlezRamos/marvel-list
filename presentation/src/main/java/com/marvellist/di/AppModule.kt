@@ -7,6 +7,7 @@ import com.marvellist.domain.exception.ErrorHandler
 import com.marvellist.domain.manager.NetworkManager
 import com.marvellist.domain.usecase.GetCharacterByIdUseCase
 import com.marvellist.domain.usecase.GetCharacterListUseCase
+import com.marvellist.domain.usecase.GetElementsByCharacterIdUseCase
 import org.kodein.di.Kodein
 import org.kodein.di.generic.bind
 import org.kodein.di.generic.instance
@@ -24,4 +25,6 @@ fun generateAppModule(app: Application) = Kodein.Module(name = "AppModule") {
     bind<GetCharacterByIdUseCase>() with provider { GetCharacterByIdUseCase(instance()) }
 
     bind<GetCharacterListUseCase>() with provider { GetCharacterListUseCase(instance()) }
+
+    bind<GetElementsByCharacterIdUseCase>() with provider { GetElementsByCharacterIdUseCase(instance()) }
 }

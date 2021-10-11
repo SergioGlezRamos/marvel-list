@@ -3,8 +3,6 @@ package com.marvellist.data.repository
 import android.content.Context
 import android.util.Log
 import com.marvellist.domain.manager.NetworkManager
-import com.marvellist.domain.model.RequestCharacterModel
-import com.marvellist.domain.model.ResponseCharacterModel
 import com.marvellist.domain.repository.MarvelRepository
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
@@ -17,7 +15,7 @@ import com.marvellist.data.net.SecuredHttpClient
 import com.marvellist.data.net.model.*
 import com.marvellist.data.utils.getHash
 import com.marvellist.domain.exception.*
-import com.marvellist.domain.model.RequestCharacterListModel
+import com.marvellist.domain.model.*
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -57,6 +55,14 @@ class ApiMarvelRepository(private val context: Context,
         val ts = Calendar.getInstance().timeInMillis.toString()
         val hash = getHash(ts)
         return marvelApi.getCharacterList(ts,PUBLIC_API_KEY,hash, characterListRequest.limit, characterListRequest.offset)
+            .await()
+            .toDomainModel()
+    }
+
+    override suspend fun getElementByCharacterId(elementRequest: RequestElementsByCharacterIdModel): ResponseElementByCharacterIdModel {
+        val ts = Calendar.getInstance().timeInMillis.toString()
+        val hash = getHash(ts)
+        return marvelApi.getElementByCharacterId(elementRequest.id, elementRequest.elementType,ts,PUBLIC_API_KEY,hash, elementRequest.offset)
             .await()
             .toDomainModel()
     }

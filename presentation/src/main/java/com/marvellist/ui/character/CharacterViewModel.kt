@@ -33,18 +33,6 @@ class CharacterViewModel(context: Context) : BaseViewModel(), KodeinAware {
     private val getCharacterByIdUseCase: GetCharacterByIdUseCase by instance()
     private val getCharacterListUseCase: GetCharacterListUseCase by instance()
 
-    fun getCharacterById(id: String){
-        executeUseCaseWithException(
-            {
-                val character = getCharacterByIdUseCase.execute(RequestCharacterModel(id))
-                val characterName = character.data.results[0].name
-            },
-            { error->
-                Log.d("Exception",error.message!!)
-            }
-        )
-    }
-
     fun getCharacterList(limit: Int = CHARACTER_LIST_REQUEST_LIMIT, offset: Int = INT_ZERO){
         executeUseCaseWithException(
             {

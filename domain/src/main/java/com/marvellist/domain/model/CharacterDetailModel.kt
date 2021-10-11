@@ -1,6 +1,6 @@
 package com.marvellist.domain.model
 
-class DataModel(
+class CharacterDetailModel(
     val offset : Int?,
     val limit : Int?,
     val total : Int?,
