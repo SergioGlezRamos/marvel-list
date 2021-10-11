@@ -8,6 +8,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import androidx.viewbinding.ViewBinding
 import com.marvellist.di.activityModule
 import org.kodein.di.Copy
 import org.kodein.di.Kodein
@@ -18,7 +19,7 @@ import org.kodein.di.generic.bind
 import org.kodein.di.generic.instance
 import org.kodein.di.generic.singleton
 
-abstract class BaseActivity<B : ViewDataBinding, VM : ViewModel>: AppCompatActivity(), KodeinAware {
+abstract class BaseActivity<B : ViewBinding, VM : ViewModel>: AppCompatActivity(), KodeinAware {
     protected lateinit var binding: B
     lateinit var viewModel: VM
 
@@ -31,16 +32,6 @@ abstract class BaseActivity<B : ViewDataBinding, VM : ViewModel>: AppCompatActiv
     }
 
     private val viewModelFactory: ViewModelProvider.Factory by instance()
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        bindContentView(layoutId())
-    }
-
-    private fun bindContentView(layoutId: Int) {
-        binding = DataBindingUtil.setContentView(this, layoutId)
-        viewModel = ViewModelProvider(this, viewModelFactory).get(getViewModelClass())
-    }
 
     abstract fun getViewModelClass(): Class<VM>
 

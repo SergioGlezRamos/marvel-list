@@ -18,13 +18,13 @@ fun ResponseCharacterMarvelApi.toDomainModel(): ResponseCharacterModel =
         data = data.toDomainModel()
     )
 
-fun DataApiMarvelModel.toDomainModel(): DataModel {
+fun DataApiMarvelModel.toDomainModel(): CharacterDetailModel {
 
     val listResult = results.map {
         it.toDomainModel()
     }
 
-    return DataModel(
+    return CharacterDetailModel(
         offset = offset,
         limit = limit,
         total = total,
@@ -116,4 +116,37 @@ fun ItemApiMarvelModel.toDomainModel(): ItemModel =
         resourceURI = resourceURI,
         name = name,
         type = type
+    )
+
+fun ResponseElementByCharacterIdMarvelApi.toDomainModel(): ResponseElementByCharacterIdModel =
+    ResponseElementByCharacterIdModel(
+        code = code,
+        status = status,
+        copyRight = copyRight,
+        attributionText = attributionText,
+        attibutionHTML = attibutionHTML,
+        etag = etag,
+        data = data.toDomainModel()
+    )
+
+fun ElementsDetailApiMarvelModel.toDomainModel(): ElementsDetailModel {
+    val listResult = results.map {
+        it.toDomainModel()
+    }
+
+    return ElementsDetailModel(
+        offset = offset,
+        limit = limit,
+        total = total,
+        count = count,
+        results = listResult
+    )
+}
+
+fun ElementDetailApiMarvelModel.toDomainModel(): ElementModel =
+    ElementModel(
+        id = id,
+        title = title,
+        description = description,
+        thumbnail = thumbnail
     )

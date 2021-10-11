@@ -2,24 +2,35 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/nav_home">
+    android:id="@+id/main_navigation"
+    app:startDestination="@+id/nav_character">
 
     <fragment
-        android:id="@+id/nav_home"
-        android:name="com.marvellist.ui.home.HomeFragment"
-        android:label="@string/menu_home"
-        tools:layout="@layout/fragment_home" />
+        android:id="@+id/nav_character"
+        android:name="com.marvellist.ui.character.CharacterListFragment"
+        android:label="@string/menu_characters"
+        tools:layout="@layout/fragment_character_list" >
+        <action
+            android:id="@+id/action_nav_character_list_to_nav_char_detail"
+            app:destination="@id/nav_char_detail"
+            app:popUpTo="@id/nav_character"
+            app:popUpToInclusive="false" />
+    </fragment>
 
     <fragment
-        android:id="@+id/nav_gallery"
-        android:name="com.marvellist.ui.gallery.GalleryFragment"
-        android:label="@string/menu_gallery"
-        tools:layout="@layout/fragment_gallery" />
+        android:id="@+id/nav_about"
+        android:name="com.marvellist.ui.about.AboutFragment"
+        android:label="@string/menu_about"
+        tools:layout="@layout/fragment_about" />
 
     <fragment
-        android:id="@+id/nav_slideshow"
-        android:name="com.marvellist.ui.slideshow.SlideshowFragment"
-        android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_slideshow" />
+        android:id="@+id/nav_char_detail"
+        android:name="com.marvellist.ui.characterdetail.CharacterDetailFragment"
+        android:label="@string/menu_char_detail"
+        tools:layout="@layout/fragment_character_detail" >
+        <argument
+            android:name="characterModel"
+            app:argType="com.marvellist.domain.model.CharacterModel" />
+    </fragment>
+
 </navigation>

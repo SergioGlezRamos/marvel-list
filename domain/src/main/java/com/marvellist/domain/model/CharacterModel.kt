@@ -1,5 +1,7 @@
 package com.marvellist.domain.model
 
+import java.io.Serializable
+
 class CharacterModel(
     val id: Int?,
     val name: String?,
@@ -12,4 +14,4 @@ class CharacterModel(
     val stories: StoryModel?,
     val events: EventModel?,
     val urls: List<UrlModel>
-)
+) : Serializable

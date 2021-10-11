@@ -1,0 +1,29 @@
+<resources>
+    <style name="ItemBackground" parent="Widget.MaterialComponents.Button">
+        <item name="backgroundColor">@color/medium_black</item>
+        <item name="shapeAppearanceOverlay">@style/MyShapeAppearance</item>
+    </style>
+    <style name="MyShapeAppearance">
+        <item name="cornerFamilyTopLeft">cut</item>
+        <item name="cornerFamilyTopRight">cut</item>
+        <item name="cornerFamilyBottomLeft">cut</item>
+        <item name="cornerFamilyBottomRight">cut</item>
+        <item name="cornerSizeTopLeft">0dp</item>
+        <item name="cornerSizeTopRight">0dp</item>
+        <item name="cornerSizeBottomLeft">0dp</item>
+        <item name="cornerSizeBottomRight">12dp</item>
+    </style>
+
+    <style name="LabelText">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/medium_black</item>
+        <item name="android:gravity">start|center_vertical</item>
+    </style>
+
+    <style name="TitleText">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/light_black</item>
+        <item name="android:gravity">start|center_vertical</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+</resources>

@@ -7,5 +7,5 @@ class ResponseCharacterModel(
     val attributionText : String?,
     val attibutionHTML : String?,
     val etag : String?,
-    val data: DataModel
+    val data: CharacterDetailModel
 )

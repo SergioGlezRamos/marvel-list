@@ -1,7 +1,6 @@
 package com.marvellist.data.repository
 
-import com.marvellist.domain.model.RequestCharacterModel
-import com.marvellist.domain.model.ResponseCharacterModel
+import com.marvellist.domain.model.*
 import com.marvellist.domain.repository.MarvelRepository
 
 
@@ -15,8 +14,12 @@ class CacheApiMarvelRepository(private val apiMarvelRepository: MarvelRepository
         return apiMarvelRepository.getCharacterById(charactersRequest)
     }
 
-    override suspend fun getCharacterList(input: Int): ResponseCharacterModel {
-        return apiMarvelRepository.getCharacterList(input)
+    override suspend fun getCharacterList(characterListRequest: RequestCharacterListModel): ResponseCharacterModel {
+        return apiMarvelRepository.getCharacterList(characterListRequest)
+    }
+
+    override suspend fun getElementByCharacterId(elementsRequest: RequestElementsByCharacterIdModel): ResponseElementByCharacterIdModel {
+        return apiMarvelRepository.getElementByCharacterId(elementsRequest)
     }
 
 }
