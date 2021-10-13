@@ -38,10 +38,10 @@ class CharacterDetailFragment : BaseFragment<FragmentCharacterDetailBinding, Cha
     private var totalSeries: Int = INT_ZERO
     private var totalEvents: Int = INT_ZERO
     private var totalComics: Int = INT_ZERO
-    private var currentComicOffset = INT_ZERO
-    private var currentEventOffset = INT_ZERO
-    private var currentSerieOffset = INT_ZERO
-    private var currentStoryOffset = INT_ZERO
+    private var currentComicOffset = ELEMENT_LIST_REQUEST_LIMIT
+    private var currentEventOffset = ELEMENT_LIST_REQUEST_LIMIT
+    private var currentSerieOffset = ELEMENT_LIST_REQUEST_LIMIT
+    private var currentStoryOffset = ELEMENT_LIST_REQUEST_LIMIT
     private val viewModelFactory: ViewModelProvider.Factory by instance()
     val args: CharacterDetailFragmentArgs by navArgs()
 
